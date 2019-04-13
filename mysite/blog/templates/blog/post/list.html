@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block content %}
+    <h1><a href="{% url 'blog:post_list' %}">My Blog</a></h1>
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}" (<a href="{% url 'blog:post_list' %}">Show all</a>)</h2>
+    {% endif %}
+    {% for post in posts %}
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <div class="date">
+            Published {{ post.publish }} by {{ post.author }}
+        </div>
+        {{ post.body|markdown|truncatewords_html:30 }}
+    {% endfor %}
+    {% include "pagination.html" with page=posts %}
+{% endblock %}
