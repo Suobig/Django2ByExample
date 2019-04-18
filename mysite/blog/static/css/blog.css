@@ -55,14 +55,14 @@ p.tags {
 
 /* forms */
 label { 
-    float:left;
+    /* float:left; */
     clear:both;
     color:#333;
     margin-bottom:4px; 
 }
 input, textarea { 
     clear:both;
-    float:left;
+    /* float:left; */
     margin:0 0 10px;
     background:#ededed;
     border:0;
@@ -79,7 +79,7 @@ input[type=submit] {
 }
 .errorlist { 
     color:#cc0033;
-    float:left;
+    /* float:left; */
     clear:both;
     padding-left:10px; 
 }
